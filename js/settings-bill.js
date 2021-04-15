@@ -3,8 +3,8 @@ var callsTotalElem2 = document.querySelector(".callTotalSettings");
 var smsTotalElem2 = document.querySelector(".smsTotalSettings");
 // get refences to all the settings fields
 var totalCostElem2 = document.querySelector(".totalSettings");
-var setCallCostEle = document.querySelector(".callCostSetting");
-var setSmsCostEle = document.querySelector(".smsCostSetting");
+var setCallCostEle2 = document.querySelector(".callCostSetting");
+var setSmsCostEle2 = document.querySelector(".smsCostSetting");
 var setWarningLevelEle = document.querySelector(".warningLevelSetting");
 var setCrictalLevelEle = document.querySelector(".criticalLevelSetting");
 //get a reference to the add button
@@ -22,9 +22,9 @@ var smsTotal = 0;
 var total = 0;
 //add an event listener for when the 'Update settings' button is pressed
 function settingsBillTotal() {   
-    if( setCallCostEle.value && setSmsCostEle.value){
-        setCallCost  = Number(setCallCostEle.value);
-        setSmsCost = Number(setSmsCostEle.value);
+    if( setCallCostEle2.value && setSmsCostEle2.value){
+        setCallCost  = Number(setCallCostEle2.value);
+        setSmsCost = Number(setSmsCostEle2.value);
         setWarningLevel = setWarningLevelEle.value;
         setCrictalLevel = setCrictalLevelEle.value;   
         colorUpdate(); 
@@ -52,7 +52,7 @@ function addSettingsBillTotal() {
     
 
     //update the totals that is displayed on the screen.
-    if( setCallCostEle.value && setSmsCostEle.value){
+    if( setCallCostEle2.value && setSmsCostEle2.value){
         callsTotalElem2.innerHTML = callsTotal.toFixed(2);
         smsTotalElem2.innerHTML = smsTotal.toFixed(2);
         total = callsTotal + smsTotal;
