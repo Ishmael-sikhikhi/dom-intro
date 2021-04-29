@@ -12,10 +12,7 @@ var addButtonSettings = document.querySelector(".addButtonSettings");
 //get a reference to the 'Update settings' button
 var updateSettingsBtn = document.querySelector(".updateSettings");
 // create a variables that will keep track of all the settings
-var setCallCost = 0;
-var setSmsCost = 0;
-var setWarningLevel = 0;
-var setCrictalLevel = 0;
+ 
 // create a variables that will keep track of all three totals.
 var callsTotal = 0;
 var smsTotal = 0;
@@ -53,10 +50,6 @@ function addSettingsBillTotal() {
     
     
     //update the totals that is displayed on the screen.
-    
-        
-        
-    // console.log(totalCost);
 
     //color the total based on the criteria 
     colorUpdate()
