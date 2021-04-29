@@ -15,8 +15,6 @@ function calculateBtnClicked(){
     
     billTotalEle.innerHTML = theCalculateBill.setTotal(billStringEle.value);
     
-    // billTotalEle.classList.remove("warning");
-    // billTotalEle.classList.remove('danger');
     
     //round to two decimals
     billTotalEle.classList.remove('warning')
