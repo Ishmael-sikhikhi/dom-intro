@@ -11,29 +11,31 @@ function RadioBills(){
         else if (billType === 'sms'){
             smsTotalradioCost += 0.75;
         }
+        return (callTotalradioCost + smsTotalradioCost).toFixed(2);
     }
+
     function getCallTotalradioCost(){
-        return callTotalradioCost;
+        return callTotalradioCost.toFixed(2);
     }
     function getSmsTotalradioCost(){
-        return smsTotalradioCost;
+        return smsTotalradioCost.toFixed(2);
     }
 
-    function getTotalCost(){
+    /*function getTotalCost(){
         return callTotalradioCost + smsTotalradioCost;
-    }
+    }*/
 
     function totalClassName(){
-        if (getTotalCost() >= 50){
-            return 'critical';
+        if ((callTotalradioCost + smsTotalradioCost) >= 50){
+            return 'danger';
         }
-        else if (getTotalCost() >= 30){
+        else if ((callTotalradioCost + smsTotalradioCost) >= 30){
             return 'warning';
         }
     }
     return {
         selectRadioBill,
-        getTotalCost,
+        // getTotalCost,
         totalClassName,
         getCallTotalradioCost,
         getSmsTotalradioCost

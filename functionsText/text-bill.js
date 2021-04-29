@@ -3,30 +3,27 @@ function textBills(){
     var callTotalBill = 0;
 
     function setBillType(typeOfBill){
-        var billType = typeOfBill;
-        if (billType === 'call'){
+        if (typeOfBill === 'call'){
             callTotalBill += 2.75;
         }
-        else if (billType === 'sms'){
+        else if (typeOfBill === 'sms'){
             smsTotalBill += 0.75;
         }
+        return (callTotalBill + smsTotalBill).toFixed(2);
     }
+    
     function getCallTotalCost(){
-        return callTotalBill;
+        return callTotalBill.toFixed(2);
     }
     function getSmsTotalCost(){
-        return smsTotalBill;
-    }
-
-    function getTotalCost(){
-        return callTotalBill + smsTotalBill;
+        return smsTotalBill.toFixed(2);
     }
 
     function totalClassName(){
-        if (getTotalCost() >= 50){
-            return 'critical';
+        if ((callTotalBill + smsTotalBill) >= 50){
+            return 'danger';
         }
-        else if (getTotalCost() >= 30){
+        else if ((callTotalBill + smsTotalBill) >= 30){
             return 'warning';
         }
     }
@@ -34,7 +31,6 @@ function textBills(){
         setBillType,
         getCallTotalCost,
         getSmsTotalCost,
-        getTotalCost,
         totalClassName
     }
 }

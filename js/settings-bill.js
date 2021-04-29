@@ -21,63 +21,52 @@ var callsTotal = 0;
 var smsTotal = 0;
 var total = 0;
 //add an event listener for when the 'Update settings' button is pressed
+let billWithSettings = BillWithSethings();
 function settingsBillTotal() {   
-    if( setCallCostEle2.value && setSmsCostEle2.value){
-        setCallCost  = Number(setCallCostEle2.value);
-        setSmsCost = Number(setSmsCostEle2.value);
-        setWarningLevel = setWarningLevelEle.value;
-        setCrictalLevel = setCrictalLevelEle.value;   
-        colorUpdate(); 
-    }    
+    
+       billWithSettings.setCallCost(Number(setCallCostEle2.value));
+       billWithSettings.setSmsCost(Number(setSmsCostEle2.value));
+       billWithSettings.setWarningLevel(setWarningLevelEle.value);
+       billWithSettings.setCriticalLevel(setCrictalLevelEle.value);  
+       colorUpdate() 
 }
-updateSettingsBtn.addEventListener('click', settingsBillTotal)
+updateSettingsBtn.addEventListener('click', settingsBillTotal);
 //add an event listener for when the add button is pressed
 function addSettingsBillTotal() {
     // get the value entered in the billType textfield
     var checkedRadioBtn1 = document.querySelector("input[name='billItemTypeWithSettings']:checked");
     if (checkedRadioBtn1){
-        if(total < setCrictalLevel){
+       
             var billItemTypeWithSettings = checkedRadioBtn1.value
             // billItemType will be 'call' or 'sms'
             // update the correct total
-            if (billItemTypeWithSettings === "call") {
-                callsTotal += setCallCost;
-            }
-            else if (billItemTypeWithSettings === "sms") {
-                smsTotal += setSmsCost;
-            }
-            
-        }
+            billWithSettings.addTotalCost(billItemTypeWithSettings);
+
     }
     
-
+    
+    
+    totalCostElem2.innerHTML = (billWithSettings.getTotalCost()).toFixed(2)
+    callsTotalElem2.innerHTML = (billWithSettings.getTotalCallCost()).toFixed(2)
+    smsTotalElem2.innerHTML = (billWithSettings.getTotalSmsCost()).toFixed(2)
+    
+    
+    
     //update the totals that is displayed on the screen.
-    if( setCallCostEle2.value && setSmsCostEle2.value){
-        callsTotalElem2.innerHTML = callsTotal.toFixed(2);
-        smsTotalElem2.innerHTML = smsTotal.toFixed(2);
-        total = callsTotal + smsTotal;
-        totalCostElem2.innerHTML = total.toFixed(2);
+    
+        
+        
     // console.log(totalCost);
-        colorUpdate();
+
     //color the total based on the criteria 
-    }   
+    colorUpdate()
 }
 addButtonSettings.addEventListener('click', addSettingsBillTotal)
 
 function colorUpdate(){
-    if (total >= setCrictalLevel) {
-        // adding the danger class will make the text red
-        totalCostElem2.classList.add("danger");
-        totalCostElem2.classList.remove("warning");
-    }
-    else if (total >= setWarningLevel) {
-        totalCostElem2.classList.add("warning");
-        totalCostElem2.classList.remove("danger");
-    }
-    else{
-        totalCostElem2.classList.remove("warning");
-        totalCostElem2.classList.remove("danger");
-    }
+    totalCostElem2.classList.remove('warning')
+    totalCostElem2.classList.remove('danger')
+    totalCostElem2.classList.add(billWithSettings.totalClassName())
 }
 //in the event listener get the value from the billItemTypeRadio radio buttons
 // * add the appropriate value to the call / sms total
