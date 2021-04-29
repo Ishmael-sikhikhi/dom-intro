@@ -21,10 +21,6 @@ function RadioBills(){
         return smsTotalradioCost.toFixed(2);
     }
 
-    /*function getTotalCost(){
-        return callTotalradioCost + smsTotalradioCost;
-    }*/
-
     function totalClassName(){
         if ((callTotalradioCost + smsTotalradioCost) >= 50){
             return 'danger';
@@ -35,7 +31,6 @@ function RadioBills(){
     }
     return {
         selectRadioBill,
-        // getTotalCost,
         totalClassName,
         getCallTotalradioCost,
         getSmsTotalradioCost
