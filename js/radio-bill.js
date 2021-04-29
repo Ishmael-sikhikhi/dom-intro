@@ -17,12 +17,7 @@ function textBillTotal1() {
         var billItemType = checkedRadioBtn.value;
     // billItemType will be 'call' or 'sms'
     }
-    /* if (billItemType === "call") {
-        radioCallsTotal += 2.75;
-    }
-    else if (billItemType === "sms") {
-        radioSmsTotal += 0.75;
-    }*/
+    
 
     //update the totals that is displayed on the screen.
    
@@ -34,19 +29,7 @@ function textBillTotal1() {
     //color the total based on the criteria
     totalCostElem1.classList.add(theRadioBill.totalClassName());
 
-    // if (radio_totalCost >= 50) {
-    //     // adding the danger class will make the text red
-    //     totalCostElem1.classList.add("danger");
-    //     totalCostElem1.classList.remove("warning");
-    // }
-    // else if (radio_totalCost >= 30) {
-    //     totalCostElem1.classList.add("warning");
-    //     totalCostElem1.classList.remove('danger');
-    // }
-    // else{
-    //     totalCostElem1.classList.remove("warning");
-    //     totalCostElem1.classList.remove('danger');
-    // }
+    
 }
 radioBillAddBtn.addEventListener('click', textBillTotal1);
 
