@@ -16,16 +16,7 @@ function calculateBills(){
         }
         return billTotal.toFixed(2);
     }
-    // function getTotalCallCost(){
-    //     return billTotal;
-    // }
-
-    // function getTotalSmsCost(){
-    //     return billTotal;
-    // }
-    // function getTotalCost(){
-    //     return billTotal;
-    // }
+    
     
     function totalClassName(smsCallBill){
         if (setTotal(smsCallBill) >= 30){
@@ -37,9 +28,6 @@ function calculateBills(){
     }
     return {               
         setTotal,
-        // getTotalCost,
-        // getTotalCallCost,
-        // getTotalSmsCost,
         totalClassName
     }
 }
