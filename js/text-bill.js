@@ -9,7 +9,7 @@ var textTotalAddBtn = document.querySelector(".addToBillBtn");
 //create a variable that will keep track of the total bill
 var textCallsTotal = 0;
 var textSmsTotal = 0;
-// var totalCost = document.querySelector(".totalOne")
+
 //add an event listener for when the add button is pressed
 let textBill = textBills();
 
